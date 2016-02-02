@@ -84,11 +84,12 @@ CRUDINI='/usr/bin/crudini'
     # 计算节点可以不用配置bridge_mappings
     $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs bridge_mappings external:br-ex,private:br-private
  
-    $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini agent tunnel_types vxlan ,qos
+    $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini agent tunnel_types vxlan
     $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini agent l2_population True
     $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini agent arp_responder True
     $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini agent prevent_arp_spoofing True
-    $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini enable_distributed_routing True
+    $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini agent enable_distributed_routing True
+    $CRUDINI --set /etc/neutron/plugins/ml2/ml2_conf.ini agent extensions qos
     
     # 清空/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
     # grep -i debian /etc/issue >/dev/null 2>/dev/null
